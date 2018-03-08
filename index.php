@@ -4,14 +4,6 @@
  * @author wp-kitten
  */
 
-/*
- * Setup the path to the git directories to sync
- */
-$gitRepoPaths = array(
-//	'path/to/your/repo/dir/here',
-//	'path/to/your/repo/dir/here',
-);
-
 /**
  * Sync the specified directories
  * @param array $dirs
@@ -32,7 +24,9 @@ function __gitPull( $dirs = array() )
 	}
 }
 
+$gitRepoPaths = include( dirname( __FILE__ ) . '/repos.php' );
+
 //#! Sync
-if( ! empty( $gitRepoPaths ) ) {
+if ( ! empty( $gitRepoPaths ) ) {
 	__gitPull( $gitRepoPaths );
 }
